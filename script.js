@@ -83,6 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
         drawConnections();
     });
 
+    // Re-draw connections when viewport layout shifts due to drawer open/close
+    viewport.addEventListener('transitionend', (e) => {
+        if (e.propertyName === 'margin-right') {
+            drawConnections();
+        }
+    });
+
     // ----------------------------------------------------
     // 1. Grid & Node Card Generation
     // ----------------------------------------------------
@@ -504,10 +511,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Slide drawer in
         drawer.classList.add('open');
+        viewport.classList.add('drawer-open');
     }
 
     function closeDrawer() {
         drawer.classList.remove('open');
+        viewport.classList.remove('drawer-open');
     }
 
     // Focuses and centers layout viewport on a node card using native scrolling

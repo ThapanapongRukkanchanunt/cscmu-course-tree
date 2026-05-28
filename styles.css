@@ -259,6 +259,11 @@ body {
         linear-gradient(90deg, rgba(255,255,255,0.007) 1px, transparent 1px);
     background-size: 24px 24px, 48px 48px, 48px 48px;
     z-index: 1; /* Explicitly set lower stacking context */
+    transition: margin-right var(--transition-normal);
+}
+
+.canvas-viewport.drawer-open {
+    margin-right: 400px;
 }
 
 .canvas-container {
