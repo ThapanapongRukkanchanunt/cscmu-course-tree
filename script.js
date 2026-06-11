@@ -496,6 +496,151 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePlannerUI();
     }
 
+    function tokenizePrereq(str) {
+        if (!str) return [];
+        const regex = /(\b\d{6}\b|\(|\)|;\s*or|;\s*and|;|and|or|[a-zA-Z0-9_]+)/gi;
+        const matches = str.match(regex) || [];
+        const tokens = [];
+        matches.forEach(m => {
+            const trimmed = m.trim();
+            if (!trimmed) return;
+            const lp = trimmed.toLowerCase();
+            if (lp === '(' || lp === ')') tokens.push({ type: lp, val: lp });
+            else if (/^;\s*or$/.test(lp)) tokens.push({ type: ';or', val: ';or' });
+            else if (/^;\s*and$/.test(lp) || lp === ';') tokens.push({ type: ';and', val: ';and' });
+            else if (lp === 'and' || lp === 'or') tokens.push({ type: lp, val: lp });
+            else if (/^\d{6}$/.test(lp)) tokens.push({ type: 'course', val: trimmed });
+            else tokens.push({ type: 'text', val: trimmed });
+        });
+        return tokens;
+    }
+
+    function parsePrereqTokens(tokens) {
+        let index = 0;
+        
+        function peek() {
+            return tokens[index];
+        }
+        
+        function consume() {
+            return tokens[index++];
+        }
+        
+        function parsePrimary() {
+            const token = peek();
+            if (!token) return null;
+            
+            if (token.type === '(') {
+                consume(); // '('
+                const expr = parseBinary(0);
+                const close = consume();
+                return expr;
+            }
+            
+            if (token.type === 'course') {
+                consume();
+                return { type: 'course', id: token.val };
+            }
+            
+            if (token.type === 'text') {
+                consume();
+                return { type: 'text', val: token.val };
+            }
+            
+            consume();
+            return null;
+        }
+        
+        function getPrecedence(type) {
+            switch (type) {
+                case ';or': return 10;
+                case ';':
+                case ';and': return 20;
+                case 'or': return 30;
+                case 'and': return 40;
+                default: return -1;
+            }
+        }
+        
+        function parseBinary(minPrecedence) {
+            let left = parsePrimary();
+            if (!left) return null;
+            
+            while (true) {
+                const token = peek();
+                if (!token) break;
+                
+                const prec = getPrecedence(token.type);
+                if (prec < minPrecedence) break;
+                
+                consume(); // consume operator
+                const right = parseBinary(prec + 1);
+                if (!right) continue;
+                
+                const opType = (token.type === 'or' || token.type === ';or') ? 'or' : 'and';
+                
+                if (left.type === opType) {
+                    left.children.push(right);
+                } else {
+                    left = { type: opType, children: [left, right] };
+                }
+            }
+            
+            return left;
+        }
+        
+        return parseBinary(0);
+    }
+
+    function isASTSatisfied(node) {
+        if (!node) return true;
+        if (node.type === 'text') return true;
+        
+        if (node.type === 'course') {
+            const course = courseMap.get(node.id);
+            if (!course) return true; 
+            const isRequired = course.classification === 'core' || course.classification === 'compulsory';
+            return isRequired || selectedElectives.has(node.id);
+        }
+        
+        if (node.type === 'and') {
+            return node.children.every(child => isASTSatisfied(child));
+        }
+        
+        if (node.type === 'or') {
+            return node.children.some(child => isASTSatisfied(child));
+        }
+        
+        return true;
+    }
+
+    function satisfyAST(node) {
+        if (!node) return;
+        if (isASTSatisfied(node)) return;
+        
+        if (node.type === 'course') {
+            addElectiveToPlan(node.id);
+            return;
+        }
+        
+        if (node.type === 'and') {
+            node.children.forEach(child => satisfyAST(child));
+            return;
+        }
+        
+        if (node.type === 'or') {
+            for (const child of node.children) {
+                const isCourse = child.type === 'course';
+                const exists = isCourse ? courseMap.has(child.id) : true;
+                if (exists) {
+                    satisfyAST(child);
+                    break;
+                }
+            }
+            return;
+        }
+    }
+
     function addElectiveToPlan(courseId) {
         const course = courseMap.get(courseId);
         if (!course) return;
@@ -511,12 +656,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add elective to plan
         selectedElectives.add(courseId);
 
-        // Recursively select all prerequisites in the active tree
-        course.prerequisites.forEach(pid => {
-            if (courseMap.has(pid)) {
-                addElectiveToPlan(pid);
-            }
-        });
+        // Recursively select prerequisites satisfying OR/AND logical rules
+        const rawText = misPrereqs[courseId];
+        if (rawText && rawText !== "None" && rawText !== "None (ไม่มี)") {
+            const tokens = tokenizePrereq(rawText);
+            const ast = parsePrereqTokens(tokens);
+            satisfyAST(ast);
+        } else {
+            // Fallback to flat prerequisites list if MIS string is missing
+            course.prerequisites.forEach(pid => {
+                if (courseMap.has(pid)) {
+                    addElectiveToPlan(pid);
+                }
+            });
+        }
     }
 
     function removeElectiveFromPlan(courseId) {
