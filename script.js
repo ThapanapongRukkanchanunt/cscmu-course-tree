@@ -150,16 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
             activeCoursesData.forEach(course => {
                 const tier = course.id.substring(3, 4);
                 course.prerequisites.forEach(prereqId => {
-                    if (prereqId.startsWith('204')) {
+                    const parent = courseMap.get(prereqId);
+                    if (parent) {
                         const prereqTier = prereqId.substring(3, 4);
                         if (prereqTier === tier) {
-                            const parent = courseMap.get(prereqId);
-                            if (parent) {
-                                const newDepth = parent.sameTierDepth + 1;
-                                if (newDepth > course.sameTierDepth) {
-                                    course.sameTierDepth = newDepth;
-                                    changed = true;
-                                }
+                            const newDepth = parent.sameTierDepth + 1;
+                            if (newDepth > course.sameTierDepth) {
+                                course.sameTierDepth = newDepth;
+                                changed = true;
                             }
                         }
                     }

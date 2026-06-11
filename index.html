@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMU CS Interactive Course Dependency Tree (204xxx)</title>
+    <title>CMU CS Interactive Course Dependency Tree (204/206/208xxx)</title>
     <!-- Modern Premium Fonts from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- App Container -->
     <div class="app-container">
@@ -20,10 +24,10 @@
                     <span class="logo-icon">🎓</span>
                     <div>
                         <h1>CMU Computer Science</h1>
-                        <p class="subtitle">Interactive Course Tree & Dependencies (204xxx)</p>
+                        <p class="subtitle">Interactive Course Tree & Dependencies (204xxx / 206xxx / 208xxx)</p>
                     </div>
                 </div>
-                
+
                 <!-- Search & Filters Block -->
                 <div class="controls-block">
                     <div class="search-wrapper">
@@ -31,23 +35,26 @@
                         <input type="text" id="search-input" placeholder="Search by course code, name, or keywords...">
                         <button id="clear-search" class="clear-btn" style="display: none;">&times;</button>
                     </div>
-                    
+
                     <div class="filter-group">
-                        <select id="version-filter" style="border-color: var(--color-core); font-weight: 600; color: var(--text-primary);">
+                        <select id="version-filter"
+                            style="border-color: var(--color-core); font-weight: 600; color: var(--text-primary);">
                             <option value="new">New Curriculum (69)</option>
                             <option value="old">Old Curriculum</option>
                         </select>
-                        
-                        <select id="path-filter" style="border-color: var(--color-compulsory); font-weight: 600; color: var(--text-primary);">
+
+                        <select id="path-filter"
+                            style="border-color: var(--color-compulsory); font-weight: 600; color: var(--text-primary);">
                             <option value="coop">Co-operative Education (Co-op)</option>
                             <option value="project">Regular / Project-oriented (Non-Coop)</option>
                         </select>
-                        
-                        <select id="minor-filter" style="border-color: var(--color-project-elective); font-weight: 600; color: var(--text-primary);">
-                            <option value="non-cs">Non-CS Minor (โทนอกภาค/ไม่มีโท)</option>
-                            <option value="cs">CS Minor (โทในภาค)</option>
+
+                        <select id="minor-filter"
+                            style="border-color: var(--color-project-elective); font-weight: 600; color: var(--text-primary);">
+                            <option value="non-cs">Non-CS Minor (โทนอกภาค)</option>
+                            <option value="cs">CS Minor (ไม่มีโท)</option>
                         </select>
-                        
+
                         <button id="reset-filters" class="reset-btn" title="Reset all selectors">Reset</button>
                     </div>
                 </div>
@@ -89,49 +96,52 @@
                     <!-- SVG Connections Layer with Arrowheads -->
                     <svg id="svg-connections" class="connections-layer">
                         <defs>
-                            <marker id="arrow" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                <path d="M 0 1 L 7 5 L 0 9 z" fill="rgba(148, 163, 184, 0.25)"/>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6"
+                                orient="auto">
+                                <path d="M 0 1 L 7 5 L 0 9 z" fill="rgba(148, 163, 184, 0.25)" />
                             </marker>
-                            <marker id="arrow-prereq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                <path d="M 0 1 L 7 5 L 0 9 z" fill="#00e5ff"/>
+                            <marker id="arrow-prereq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6"
+                                markerHeight="6" orient="auto">
+                                <path d="M 0 1 L 7 5 L 0 9 z" fill="#00e5ff" />
                             </marker>
-                            <marker id="arrow-postreq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                <path d="M 0 1 L 7 5 L 0 9 z" fill="#ffb300"/>
+                            <marker id="arrow-postreq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6"
+                                markerHeight="6" orient="auto">
+                                <path d="M 0 1 L 7 5 L 0 9 z" fill="#ffb300" />
                             </marker>
                         </defs>
                     </svg>
-                    
+
                     <!-- Tiers Column Grid -->
                     <div class="tiers-grid" id="tiers-grid">
                         <!-- Column 1: Tier 1 -->
                         <div class="tier-column" id="tier-1">
                             <div class="tier-header">
                                 <h2>Tier 1</h2>
-                                <span>2041xx Courses</span>
+                                <span>1st Year Courses</span>
                             </div>
                         </div>
-                        
+
                         <!-- Column 2: Tier 2 -->
                         <div class="tier-column" id="tier-2">
                             <div class="tier-header">
                                 <h2>Tier 2</h2>
-                                <span>2042xx Courses</span>
+                                <span>2nd Year Courses</span>
                             </div>
                         </div>
-                        
+
                         <!-- Column 3: Tier 3 -->
                         <div class="tier-column" id="tier-3">
                             <div class="tier-header">
                                 <h2>Tier 3</h2>
-                                <span>2043xx Courses</span>
+                                <span>3rd Year Courses</span>
                             </div>
                         </div>
-                        
+
                         <!-- Column 4: Tier 4 -->
                         <div class="tier-column" id="tier-4">
                             <div class="tier-header">
                                 <h2>Tier 4</h2>
-                                <span>2044xx Courses</span>
+                                <span>4th Year Courses</span>
                             </div>
                         </div>
                     </div>
@@ -150,10 +160,11 @@
                     </div>
                     <div class="selected-list" id="selected-list">
                         <!-- Populated dynamically -->
-                        <p class="empty-selection-text">No elective courses selected. Click + on elective cards to add.</p>
+                        <p class="empty-selection-text">No elective courses selected. Click + on elective cards to add.
+                        </p>
                     </div>
                 </section>
-                
+
                 <!-- Audit Section: Curriculum Requirements Audit -->
                 <section class="audit-section" id="audit-section">
                     <h3>📊 Requirement Progress</h3>
@@ -188,20 +199,21 @@
                         ❌ Requirements not satisfied
                     </div>
                 </section>
-                
+
                 <!-- Bottom Section: Course Details -->
                 <section class="course-details-section">
                     <div id="details-placeholder" class="details-placeholder">
                         <div class="placeholder-icon">🎓</div>
                         <h4>Course Details</h4>
-                        <p>Click on any course in the tree to view its detailed syllabus, outcomes, and exact prerequisites.</p>
+                        <p>Click on any course in the tree to view its detailed syllabus, outcomes, and exact
+                            prerequisites.</p>
                     </div>
-                    
+
                     <div id="details-container" class="details-container hidden">
                         <div class="drawer-header" id="drawer-header">
                             <!-- Course header populated dynamically -->
                         </div>
-                        
+
                         <div class="drawer-body">
                             <!-- Offered Semesters block -->
                             <section class="info-section">
@@ -210,7 +222,7 @@
                                     <!-- Semesters tags dynamically populated -->
                                 </div>
                             </section>
-                            
+
                             <!-- Description Tab Section -->
                             <section class="info-section">
                                 <div class="tabs-header">
@@ -224,7 +236,7 @@
                                     <!-- English description -->
                                 </div>
                             </section>
-                            
+
                             <!-- CLOs Block -->
                             <section class="info-section">
                                 <h3>🎯 Course Learning Outcomes (CLOs)</h3>
@@ -232,7 +244,7 @@
                                     <!-- CLOs dynamically populated -->
                                 </div>
                             </section>
-                            
+
                             <!-- Explicit Dependencies Block -->
                             <section class="info-section">
                                 <h3>🔗 Connections</h3>
@@ -254,7 +266,7 @@
                 </section>
             </aside>
         </div>
-        
+
         <!-- Zoom & Pan Floating Toolbar -->
         <div class="toolbar">
             <button id="zoom-in" title="Zoom In">➕</button>
@@ -262,10 +274,11 @@
             <button id="zoom-fit" title="Fit to Screen">🎯</button>
             <button id="clear-selection" class="hidden" title="Clear highlights">Clear Highlights</button>
         </div>
-        
+
         <!-- Instructions Toast Overlay -->
         <div class="instructions-overlay">
-            💡 Click a course to highlight its prerequisites (cyan) and postrequisites (gold). Scroll vertically to navigate.
+            💡 Click a course to highlight its prerequisites (cyan) and postrequisites (gold). Scroll vertically to
+            navigate.
         </div>
     </div>
 
@@ -277,4 +290,5 @@
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
