@@ -34,27 +34,21 @@
                     
                     <div class="filter-group">
                         <select id="version-filter" style="border-color: var(--color-core); font-weight: 600; color: var(--text-primary);">
-                            <option value="after">New Curriculum (After 2569)</option>
-                            <option value="before">Old Curriculum (Before 2569)</option>
+                            <option value="new">New Curriculum (69)</option>
+                            <option value="old">Old Curriculum</option>
                         </select>
                         
-                        <select id="category-filter">
-                            <option value="all">All Classifications</option>
-                            <option value="core">Core Courses (วิชาแกน)</option>
-                            <option value="compulsory">Compulsory Courses (วิชาบังคับ)</option>
-                            <option value="project-elective">Project-oriented Electives (เลือกทำโครงงาน)</option>
-                            <option value="non-project-elective">Non-project Electives (เลือกไม่ทำโครงงาน)</option>
-                            <option value="other">General Ed & Others (วิชาอื่นๆ)</option>
+                        <select id="path-filter" style="border-color: var(--color-compulsory); font-weight: 600; color: var(--text-primary);">
+                            <option value="coop">Co-operative Education (Co-op)</option>
+                            <option value="project">Regular / Project-oriented (Non-Coop)</option>
                         </select>
                         
-                        <select id="semester-filter">
-                            <option value="all">All Semesters</option>
-                            <option value="t1">Offered in Semester 1</option>
-                            <option value="t2">Offered in Semester 2</option>
-                            <option value="both">Offered in Both Semesters</option>
+                        <select id="minor-filter" style="border-color: var(--color-project-elective); font-weight: 600; color: var(--text-primary);">
+                            <option value="non-cs">Non-CS Minor (โทนอกภาค/ไม่มีโท)</option>
+                            <option value="cs">CS Minor (โทในภาค)</option>
                         </select>
                         
-                        <button id="reset-filters" class="reset-btn" title="Reset all filters">Reset</button>
+                        <button id="reset-filters" class="reset-btn" title="Reset all selectors">Reset</button>
                     </div>
                 </div>
             </div>
@@ -87,65 +81,180 @@
             </div>
         </header>
 
-        <!-- Visualization Canvas Area -->
-        <main class="canvas-viewport" id="viewport">
-            <div class="canvas-container" id="canvas-container">
-                <!-- SVG Connections Layer with Arrowheads -->
-                <svg id="svg-connections" class="connections-layer">
-                    <defs>
-                        <marker id="arrow" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                            <path d="M 0 1 L 7 5 L 0 9 z" fill="rgba(148, 163, 184, 0.25)"/>
-                        </marker>
-                        <marker id="arrow-prereq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                            <path d="M 0 1 L 7 5 L 0 9 z" fill="#00e5ff"/>
-                        </marker>
-                        <marker id="arrow-postreq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                            <path d="M 0 1 L 7 5 L 0 9 z" fill="#ffb300"/>
-                        </marker>
-                    </defs>
-                </svg>
-                
-                <!-- Tiers Column Grid -->
-                <div class="tiers-grid" id="tiers-grid">
-                    <!-- Column 1: Tier 1 -->
-                    <div class="tier-column" id="tier-1">
-                        <div class="tier-header">
-                            <h2>Tier 1</h2>
-                            <span>2041xx Courses</span>
-                        </div>
-                        <div class="nodes-container" id="tier-1-nodes"></div>
-                    </div>
+        <!-- Main Layout wrapping Viewport and Permanent Sidebar -->
+        <div class="main-layout">
+            <!-- Visualization Canvas Area -->
+            <main class="canvas-viewport" id="viewport">
+                <div class="canvas-container" id="canvas-container">
+                    <!-- SVG Connections Layer with Arrowheads -->
+                    <svg id="svg-connections" class="connections-layer">
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                <path d="M 0 1 L 7 5 L 0 9 z" fill="rgba(148, 163, 184, 0.25)"/>
+                            </marker>
+                            <marker id="arrow-prereq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                <path d="M 0 1 L 7 5 L 0 9 z" fill="#00e5ff"/>
+                            </marker>
+                            <marker id="arrow-postreq" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                <path d="M 0 1 L 7 5 L 0 9 z" fill="#ffb300"/>
+                            </marker>
+                        </defs>
+                    </svg>
                     
-                    <!-- Column 2: Tier 2 -->
-                    <div class="tier-column" id="tier-2">
-                        <div class="tier-header">
-                            <h2>Tier 2</h2>
-                            <span>2042xx Courses</span>
+                    <!-- Tiers Column Grid -->
+                    <div class="tiers-grid" id="tiers-grid">
+                        <!-- Column 1: Tier 1 -->
+                        <div class="tier-column" id="tier-1">
+                            <div class="tier-header">
+                                <h2>Tier 1</h2>
+                                <span>2041xx Courses</span>
+                            </div>
                         </div>
-                        <div class="nodes-container" id="tier-2-nodes"></div>
-                    </div>
-                    
-                    <!-- Column 3: Tier 3 -->
-                    <div class="tier-column" id="tier-3">
-                        <div class="tier-header">
-                            <h2>Tier 3</h2>
-                            <span>2043xx Courses</span>
+                        
+                        <!-- Column 2: Tier 2 -->
+                        <div class="tier-column" id="tier-2">
+                            <div class="tier-header">
+                                <h2>Tier 2</h2>
+                                <span>2042xx Courses</span>
+                            </div>
                         </div>
-                        <div class="nodes-container" id="tier-3-nodes"></div>
-                    </div>
-                    
-                    <!-- Column 4: Tier 4 -->
-                    <div class="tier-column" id="tier-4">
-                        <div class="tier-header">
-                            <h2>Tier 4</h2>
-                            <span>2044xx Courses</span>
+                        
+                        <!-- Column 3: Tier 3 -->
+                        <div class="tier-column" id="tier-3">
+                            <div class="tier-header">
+                                <h2>Tier 3</h2>
+                                <span>2043xx Courses</span>
+                            </div>
                         </div>
-                        <div class="nodes-container" id="tier-4-nodes"></div>
+                        
+                        <!-- Column 4: Tier 4 -->
+                        <div class="tier-column" id="tier-4">
+                            <div class="tier-header">
+                                <h2>Tier 4</h2>
+                                <span>2044xx Courses</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
 
+            <!-- Permanent Sidebar Panel (Right Panel) -->
+            <aside class="right-panel" id="right-panel">
+                <!-- Top Section: Selected Elective Courses -->
+                <section class="selected-electives-section">
+                    <div class="panel-section-header">
+                        <h3>📋 Selected Electives</h3>
+                        <button id="share-btn" class="share-btn" title="Share Selection (Copy Link to Clipboard)">
+                            <span>🔗 Share Plan</span>
+                        </button>
+                    </div>
+                    <div class="selected-list" id="selected-list">
+                        <!-- Populated dynamically -->
+                        <p class="empty-selection-text">No elective courses selected. Click + on elective cards to add.</p>
+                    </div>
+                </section>
+                
+                <!-- Audit Section: Curriculum Requirements Audit -->
+                <section class="audit-section" id="audit-section">
+                    <h3>📊 Requirement Progress</h3>
+                    <div class="audit-item" id="audit-total-credits">
+                        <div class="audit-item-label">
+                            <span>Total Elective Credits</span>
+                            <span class="audit-val" id="audit-total-val">0 / 15 Credits</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="audit-total-fill"></div>
+                        </div>
+                    </div>
+                    <div class="audit-item" id="audit-tier4-credits">
+                        <div class="audit-item-label">
+                            <span>Tier 4 Credits (2044xx / 2064xx)</span>
+                            <span class="audit-val" id="audit-tier4-val">0 / 9 Credits</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="audit-tier4-fill"></div>
+                        </div>
+                    </div>
+                    <div class="audit-item" id="audit-project-credits" style="display: none;">
+                        <div class="audit-item-label">
+                            <span>Project Elective Credits</span>
+                            <span class="audit-val" id="audit-project-val">0 / 15 Credits</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="audit-project-fill"></div>
+                        </div>
+                    </div>
+                    <div id="audit-status-msg" class="audit-status-msg unsatisfied">
+                        ❌ Requirements not satisfied
+                    </div>
+                </section>
+                
+                <!-- Bottom Section: Course Details -->
+                <section class="course-details-section">
+                    <div id="details-placeholder" class="details-placeholder">
+                        <div class="placeholder-icon">🎓</div>
+                        <h4>Course Details</h4>
+                        <p>Click on any course in the tree to view its detailed syllabus, outcomes, and exact prerequisites.</p>
+                    </div>
+                    
+                    <div id="details-container" class="details-container hidden">
+                        <div class="drawer-header" id="drawer-header">
+                            <!-- Course header populated dynamically -->
+                        </div>
+                        
+                        <div class="drawer-body">
+                            <!-- Offered Semesters block -->
+                            <section class="info-section">
+                                <h3>📅 Offered Semesters</h3>
+                                <div id="drawer-semesters" class="semesters-row">
+                                    <!-- Semesters tags dynamically populated -->
+                                </div>
+                            </section>
+                            
+                            <!-- Description Tab Section -->
+                            <section class="info-section">
+                                <div class="tabs-header">
+                                    <button class="tab-btn active" data-tab="desc-th">ภาษาไทย</button>
+                                    <button class="tab-btn" data-tab="desc-en">English</button>
+                                </div>
+                                <div class="tab-content active" id="desc-th-content">
+                                    <!-- Thai description -->
+                                </div>
+                                <div class="tab-content" id="desc-en-content">
+                                    <!-- English description -->
+                                </div>
+                            </section>
+                            
+                            <!-- CLOs Block -->
+                            <section class="info-section">
+                                <h3>🎯 Course Learning Outcomes (CLOs)</h3>
+                                <div id="drawer-clos" class="clo-list">
+                                    <!-- CLOs dynamically populated -->
+                                </div>
+                            </section>
+                            
+                            <!-- Explicit Dependencies Block -->
+                            <section class="info-section">
+                                <h3>🔗 Connections</h3>
+                                <div class="dependency-grid">
+                                    <div class="dep-col">
+                                        <h4>Prerequisites (Required Before)</h4>
+                                        <div id="details-prereq-text" class="mis-prereq-text-box">
+                                            <!-- Raw MIS prerequisite text with interactive links -->
+                                        </div>
+                                    </div>
+                                    <div class="dep-col">
+                                        <h4>Postrequisites (Follow-up Courses)</h4>
+                                        <ul id="drawer-postreqs" class="dep-list"></ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+        
         <!-- Zoom & Pan Floating Toolbar -->
         <div class="toolbar">
             <button id="zoom-in" title="Zoom In">➕</button>
@@ -158,65 +267,13 @@
         <div class="instructions-overlay">
             💡 Click a course to highlight its prerequisites (cyan) and postrequisites (gold). Scroll vertically to navigate.
         </div>
-
-        <!-- Details Slide-out Drawer Panel -->
-        <aside class="details-drawer" id="drawer">
-            <button id="close-drawer" class="close-btn" title="Close details panel">&times;</button>
-            
-            <div class="drawer-header" id="drawer-header">
-                <!-- Course header populated dynamically -->
-            </div>
-            
-            <div class="drawer-body">
-                <!-- Offered Semesters block -->
-                <section class="info-section">
-                    <h3>📅 Offered Semesters</h3>
-                    <div id="drawer-semesters" class="semesters-row">
-                        <!-- Semesters tags dynamically populated -->
-                    </div>
-                </section>
-                
-                <!-- Description Tab Section -->
-                <section class="info-section">
-                    <div class="tabs-header">
-                        <button class="tab-btn active" data-tab="desc-th">ภาษาไทย</button>
-                        <button class="tab-btn" data-tab="desc-en">English</button>
-                    </div>
-                    <div class="tab-content active" id="desc-th-content">
-                        <!-- Thai description -->
-                    </div>
-                    <div class="tab-content" id="desc-en-content">
-                        <!-- English description -->
-                    </div>
-                </section>
-                
-                <!-- CLOs Block -->
-                <section class="info-section">
-                    <h3>🎯 Course Learning Outcomes (CLOs)</h3>
-                    <div id="drawer-clos" class="clo-list">
-                        <!-- CLOs dynamically populated -->
-                    </div>
-                </section>
-                
-                <!-- Explicit Dependencies Block -->
-                <section class="info-section">
-                    <h3>🔗 Connections</h3>
-                    <div class="dependency-grid">
-                        <div class="dep-col">
-                            <h4>Prerequisites (Required Before)</h4>
-                            <ul id="drawer-prereqs" class="dep-list"></ul>
-                        </div>
-                        <div class="dep-col">
-                            <h4>Postrequisites (Follow-up Courses)</h4>
-                            <ul id="drawer-postreqs" class="dep-list"></ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </aside>
     </div>
 
+    <!-- Toast Notification Overlay -->
+    <div id="toast-container" class="toast-container"></div>
+
     <!-- Inject Course Data and logic -->
+    <script src="mis_prereqs.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>

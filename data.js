@@ -225,7 +225,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -318,7 +318,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -380,7 +380,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -971,7 +971,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -1417,7 +1417,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -1762,7 +1762,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -1913,7 +1913,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -1938,7 +1938,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -1963,7 +1963,7 @@ coursesDataBefore2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -2049,6 +2049,215 @@ coursesDataBefore2569 = [
       "t1": false,
       "t2": true,
       "label": "2"
+    }
+  },
+  {
+    "id": "206111",
+    "name_TH": "แคลคูลัส 1",
+    "name_EN": "Calculus 1",
+    "credits": "3(3-0-6)",
+    "desc_TH": "อนุพันธ์และการประยุกต์ การหาปริพันธ์และการประยุกต์ สมการเชิงอนุพันธ์อันดับหนึ่งและการประยุกต์",
+    "desc_EN": "Derivatives and applications, integration and applications, and first-order differential equations and some applications.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206112",
+    "name_TH": "แคลคูลัส 2",
+    "name_EN": "Calculus 2",
+    "credits": "3(3-0-6)",
+    "desc_TH": "สมการเชิงอนุพันธ์เชิงเส้นอันดับสอง ฟังก์ชันหลายตัวแปร ปริพันธ์หลายชั้น อนุกรมอนันต์",
+    "desc_EN": "Linear second-order differential equations, functions of several variables, multiple integrals, and infinite series.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206111"
+    ],
+    "classification": "compulsory",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "206183",
+    "name_TH": "โครงสร้างวิยุต",
+    "name_EN": "Discrete Structure",
+    "credits": "3(3-0-6)",
+    "desc_TH": "เซต ตรรกศาสตร์เชิงประพจน์และการพิสูจน์ การอุปนัยเชิงคณิตศาสตร์และการเวียนเกิด ทฤษฎีจำนวนพื้นฐาน ความสัมพันธ์และฟังก์ชัน การนับพื้นฐาน สัมประสิทธิ์ทวินาม",
+    "desc_EN": "Sets, propositional logics and proofs, mathematical induction and recursions, basic number theory, relations and functions, basic counting, binomial coefficients.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": false,
+      "label": "1"
+    }
+  },
+  {
+    "id": "206324",
+    "name_TH": "พีชคณิตเชิงเส้นประยุกต์",
+    "name_EN": "Applied Linear Algebra",
+    "credits": "3(3-0-6)",
+    "desc_TH": "ระบบสมการเชิงเส้น เมทริกซ์ ดีเทอร์มิแนนต์ ปริภูมิเวกเตอร์ ปริภูมิผลคูณภายใน การแปลงเชิงเส้น ค่าลักษณะเฉพาะและเวกเตอร์ลักษณะเฉพาะ และการประยุกต์",
+    "desc_EN": "System of linear equations, matrices, determinants, vector spaces, inner product spaces, linear transformations, eigenvalues and eigenvectors, and their applications.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206112",
+      "206203",
+      "206261"
+    ],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206336",
+    "name_TH": "การวิเคราะห์เชิงจริง 1",
+    "name_EN": "Real analysis 1",
+    "credits": "3(3-0-6)",
+    "desc_TH": "จำนวนจริง ลำดับและอนุกรมของจำนวน ลิมิตและภาวะต่อเนื่องของฟังก์ชัน การหาอนุพันธ์ ปริพันธ์แบบรีมันน์",
+    "desc_EN": "Real numbers, sequences and series of numbers, limits and continuity of functions, differentiation, Riemann integral.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206217"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206370",
+    "name_TH": "ความน่าจะเป็น 1",
+    "name_EN": "Probability 1",
+    "credits": "3(3-0-6)",
+    "desc_TH": "รากฐานของความน่าจะเป็น ความน่าจะเป็นมีเงื่อนไข ตัวแปรสุ่ม ตัวแปรสุ่มวิยุตที่สำคัญ ตัวแปรสุ่มต่อเนื่องที่สำคัญ ทฤษฎีบทขีดจำกัด",
+    "desc_EN": "Foundation of probability, conditional probability, random variables, important discrete random variables, important continuous random variables, limit theorems",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206112",
+      "206203",
+      "206261"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206428",
+    "name_TH": "ทฤษฎีรหัส",
+    "name_EN": "Coding Theory",
+    "credits": "3(3-0-6)",
+    "desc_TH": "บทนำสู่ทฤษฎีรหัส รหัสเชิงเส้น ขอบเขตของรหัสและรหัส รหัสพหุนาม",
+    "desc_EN": "Introduction to coding theory, linear codes, bounds in coding theory and codes, polynomial codes.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206321",
+      "206325"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "206463",
+    "name_TH": "การหาค่าเหมาะที่สุดเชิงกำหนด",
+    "name_EN": "Deterministic Optimization",
+    "credits": "3(3-0-6)",
+    "desc_TH": "แบบจำลองการหาค่าเหมาะที่สุดเชิงกำหนด กำหนดการเชิงเส้น กำหนดการเชิงจำนวนเต็ม การวิเคราะห์โครงข่าย กำหนดการเชิงเป้าหมาย กำหนดการไม่เชิงเส้น",
+    "desc_EN": "Deterministic optimization models, linear programming, integer programming, network analysis, goal programming, nonlinear programming.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206325",
+      "206336"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": false,
+      "label": "not offered"
+    }
+  },
+  {
+    "id": "206476",
+    "name_TH": "ทฤษฎีเกม",
+    "name_EN": "Game theory",
+    "credits": "3(3-0-6)",
+    "desc_TH": "เกมแบบเล่นพร้อมกันที่มีข้อมูลครบถ้วน เกมแบบเล่นไม่พร้อมกันที่มีข้อมูลครบถ้วน เกมแบบเล่นพร้อมกันที่มีข้อมูลไม่ครบถ้วน เกมแบบเล่นไม่พร้อมกันที่มีข้อมูลไม่ครบถ้วน",
+    "desc_EN": "Static games of complete information, dynamic games of complete information, static games of incomplete information, dynamic games of incomplete information.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "206481",
+    "name_TH": "ทฤษฎีกราฟ",
+    "name_EN": "Graph Theory",
+    "credits": "3(3-0-6)",
+    "desc_TH": "บทนำ ทฤษฎีกราฟมูลฐาน กราฟต้นไม้ กราฟแบบออยเลอร์และกราฟแบบแฮมิลตัน กราฟเชิงระนาบ การให้สีกราฟ",
+    "desc_EN": "Introduction, elementary graph theory, trees, Eulerian and Hamiltonian graphs, planar graphs and graph colorings.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206183",
+      "206217",
+      "206281"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "208269",
+    "name_TH": "สถิติสำหรับวิทยาการคอมพิวเตอร์",
+    "name_EN": "Statistics for Computer Science",
+    "credits": "3(3-0-6)",
+    "desc_TH": "ความรู้พื้นฐานเกี่ยวกับสถิติ ตัวแปรสุ่มและการแจกแจงความน่าจะเป็นของตัวแปรสุ่ม การแจกแจงความน่าจะเป็นของตัวแปรสุ่มไม่ต่อเนื่อง การแจกแจงความน่าจะเป็นของตัวแปรสุ่มต่อเนื่อง สถิติเชิงอนุมาน การทดสอบภาวะสารูปดีและการทดสอบความเป็นอิสระ การวิเคราะห์ความแปรปรวน สหสัมพันธ์และการวิเคราะห์การถดถอย",
+    "desc_EN": "Basic statistical knowledge, random variables and probability distributions, probability distribution of discrete random variables, probability distribution of continuous random variables, inferential statistics, goodness of fit test and independence test, analysis of variance, and correlation and regression analysis.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": false,
+      "label": "1"
     }
   }
 ];
@@ -2194,9 +2403,9 @@ coursesDataAfter2569 = [
     ],
     "classification": "core",
     "terms": {
-      "t1": true,
-      "t2": true,
-      "label": "yearly"
+      "t1": false,
+      "t2": false,
+      "label": "not offered"
     }
   },
   {
@@ -2272,7 +2481,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -2330,7 +2539,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -2392,7 +2601,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -2476,9 +2685,9 @@ coursesDataAfter2569 = [
     ],
     "classification": "core",
     "terms": {
-      "t1": true,
-      "t2": true,
-      "label": "yearly"
+      "t1": false,
+      "t2": false,
+      "label": "not offered"
     }
   },
   {
@@ -2564,9 +2773,9 @@ coursesDataAfter2569 = [
     ],
     "classification": "project-elective",
     "terms": {
-      "t1": true,
+      "t1": false,
       "t2": true,
-      "label": "yearly"
+      "label": "2"
     }
   },
   {
@@ -2937,7 +3146,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -3343,7 +3552,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -3680,7 +3889,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -3777,7 +3986,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -3798,9 +4007,9 @@ coursesDataAfter2569 = [
     "prerequisites": [],
     "classification": "non-project-elective",
     "terms": {
-      "t1": true,
-      "t2": true,
-      "label": "yearly"
+      "t1": false,
+      "t2": false,
+      "label": "not offered"
     }
   },
   {
@@ -3825,7 +4034,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -3850,7 +4059,7 @@ coursesDataAfter2569 = [
     "terms": {
       "t1": false,
       "t2": false,
-      "label": "yearly"
+      "label": "not offered"
     }
   },
   {
@@ -3909,6 +4118,215 @@ coursesDataAfter2569 = [
       "t1": false,
       "t2": true,
       "label": "2"
+    }
+  },
+  {
+    "id": "206111",
+    "name_TH": "แคลคูลัส 1",
+    "name_EN": "Calculus 1",
+    "credits": "3(3-0-6)",
+    "desc_TH": "อนุพันธ์และการประยุกต์ การหาปริพันธ์และการประยุกต์ สมการเชิงอนุพันธ์อันดับหนึ่งและการประยุกต์",
+    "desc_EN": "Derivatives and applications, integration and applications, and first-order differential equations and some applications.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206112",
+    "name_TH": "แคลคูลัส 2",
+    "name_EN": "Calculus 2",
+    "credits": "3(3-0-6)",
+    "desc_TH": "สมการเชิงอนุพันธ์เชิงเส้นอันดับสอง ฟังก์ชันหลายตัวแปร ปริพันธ์หลายชั้น อนุกรมอนันต์",
+    "desc_EN": "Linear second-order differential equations, functions of several variables, multiple integrals, and infinite series.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206111"
+    ],
+    "classification": "compulsory",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "206183",
+    "name_TH": "โครงสร้างวิยุต",
+    "name_EN": "Discrete Structure",
+    "credits": "3(3-0-6)",
+    "desc_TH": "เซต ตรรกศาสตร์เชิงประพจน์และการพิสูจน์ การอุปนัยเชิงคณิตศาสตร์และการเวียนเกิด ทฤษฎีจำนวนพื้นฐาน ความสัมพันธ์และฟังก์ชัน การนับพื้นฐาน สัมประสิทธิ์ทวินาม",
+    "desc_EN": "Sets, propositional logics and proofs, mathematical induction and recursions, basic number theory, relations and functions, basic counting, binomial coefficients.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": false,
+      "label": "1"
+    }
+  },
+  {
+    "id": "206324",
+    "name_TH": "พีชคณิตเชิงเส้นประยุกต์",
+    "name_EN": "Applied Linear Algebra",
+    "credits": "3(3-0-6)",
+    "desc_TH": "ระบบสมการเชิงเส้น เมทริกซ์ ดีเทอร์มิแนนต์ ปริภูมิเวกเตอร์ ปริภูมิผลคูณภายใน การแปลงเชิงเส้น ค่าลักษณะเฉพาะและเวกเตอร์ลักษณะเฉพาะ และการประยุกต์",
+    "desc_EN": "System of linear equations, matrices, determinants, vector spaces, inner product spaces, linear transformations, eigenvalues and eigenvectors, and their applications.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206112",
+      "206203",
+      "206261"
+    ],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206336",
+    "name_TH": "การวิเคราะห์เชิงจริง 1",
+    "name_EN": "Real analysis 1",
+    "credits": "3(3-0-6)",
+    "desc_TH": "จำนวนจริง ลำดับและอนุกรมของจำนวน ลิมิตและภาวะต่อเนื่องของฟังก์ชัน การหาอนุพันธ์ ปริพันธ์แบบรีมันน์",
+    "desc_EN": "Real numbers, sequences and series of numbers, limits and continuity of functions, differentiation, Riemann integral.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206217"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206370",
+    "name_TH": "ความน่าจะเป็น 1",
+    "name_EN": "Probability 1",
+    "credits": "3(3-0-6)",
+    "desc_TH": "รากฐานของความน่าจะเป็น ความน่าจะเป็นมีเงื่อนไข ตัวแปรสุ่ม ตัวแปรสุ่มวิยุตที่สำคัญ ตัวแปรสุ่มต่อเนื่องที่สำคัญ ทฤษฎีบทขีดจำกัด",
+    "desc_EN": "Foundation of probability, conditional probability, random variables, important discrete random variables, important continuous random variables, limit theorems",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206112",
+      "206203",
+      "206261"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": true,
+      "t2": true,
+      "label": "yearly"
+    }
+  },
+  {
+    "id": "206428",
+    "name_TH": "ทฤษฎีรหัส",
+    "name_EN": "Coding Theory",
+    "credits": "3(3-0-6)",
+    "desc_TH": "บทนำสู่ทฤษฎีรหัส รหัสเชิงเส้น ขอบเขตของรหัสและรหัส รหัสพหุนาม",
+    "desc_EN": "Introduction to coding theory, linear codes, bounds in coding theory and codes, polynomial codes.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206321",
+      "206325"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "206463",
+    "name_TH": "การหาค่าเหมาะที่สุดเชิงกำหนด",
+    "name_EN": "Deterministic Optimization",
+    "credits": "3(3-0-6)",
+    "desc_TH": "แบบจำลองการหาค่าเหมาะที่สุดเชิงกำหนด กำหนดการเชิงเส้น กำหนดการเชิงจำนวนเต็ม การวิเคราะห์โครงข่าย กำหนดการเชิงเป้าหมาย กำหนดการไม่เชิงเส้น",
+    "desc_EN": "Deterministic optimization models, linear programming, integer programming, network analysis, goal programming, nonlinear programming.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206325",
+      "206336"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": false,
+      "label": "not offered"
+    }
+  },
+  {
+    "id": "206476",
+    "name_TH": "ทฤษฎีเกม",
+    "name_EN": "Game theory",
+    "credits": "3(3-0-6)",
+    "desc_TH": "เกมแบบเล่นพร้อมกันที่มีข้อมูลครบถ้วน เกมแบบเล่นไม่พร้อมกันที่มีข้อมูลครบถ้วน เกมแบบเล่นพร้อมกันที่มีข้อมูลไม่ครบถ้วน เกมแบบเล่นไม่พร้อมกันที่มีข้อมูลไม่ครบถ้วน",
+    "desc_EN": "Static games of complete information, dynamic games of complete information, static games of incomplete information, dynamic games of incomplete information.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "206481",
+    "name_TH": "ทฤษฎีกราฟ",
+    "name_EN": "Graph Theory",
+    "credits": "3(3-0-6)",
+    "desc_TH": "บทนำ ทฤษฎีกราฟมูลฐาน กราฟต้นไม้ กราฟแบบออยเลอร์และกราฟแบบแฮมิลตัน กราฟเชิงระนาบ การให้สีกราฟ",
+    "desc_EN": "Introduction, elementary graph theory, trees, Eulerian and Hamiltonian graphs, planar graphs and graph colorings.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [
+      "206183",
+      "206217",
+      "206281"
+    ],
+    "classification": "elective",
+    "terms": {
+      "t1": false,
+      "t2": true,
+      "label": "2"
+    }
+  },
+  {
+    "id": "208269",
+    "name_TH": "สถิติสำหรับวิทยาการคอมพิวเตอร์",
+    "name_EN": "Statistics for Computer Science",
+    "credits": "3(3-0-6)",
+    "desc_TH": "ความรู้พื้นฐานเกี่ยวกับสถิติ ตัวแปรสุ่มและการแจกแจงความน่าจะเป็นของตัวแปรสุ่ม การแจกแจงความน่าจะเป็นของตัวแปรสุ่มไม่ต่อเนื่อง การแจกแจงความน่าจะเป็นของตัวแปรสุ่มต่อเนื่อง สถิติเชิงอนุมาน การทดสอบภาวะสารูปดีและการทดสอบความเป็นอิสระ การวิเคราะห์ความแปรปรวน สหสัมพันธ์และการวิเคราะห์การถดถอย",
+    "desc_EN": "Basic statistical knowledge, random variables and probability distributions, probability distribution of discrete random variables, probability distribution of continuous random variables, inferential statistics, goodness of fit test and independence test, analysis of variance, and correlation and regression analysis.",
+    "CLOs_TH": [],
+    "CLOs_EN": [],
+    "prerequisites": [],
+    "classification": "compulsory",
+    "terms": {
+      "t1": true,
+      "t2": false,
+      "label": "1"
     }
   }
 ];
